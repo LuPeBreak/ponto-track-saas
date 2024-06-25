@@ -1,0 +1,22 @@
+{
+  "name": "@ponto-track-saas/auth",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "devDependencies": {
+    "@ponto-track-saas/eslint-config": "workspace:*",
+    "@ponto-track-saas/prettier": "workspace:*",
+    "@ponto-track-saas/tsconfig": "workspace:*"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@ponto-track-saas/eslint-config/library"
+    ]
+  },
+  "prettier": "@ponto-track-saas/prettier",
+  "dependencies": {
+    "@casl/ability": "^6.7.1",
+    "zod": "^3.23.8"
+  }
+}

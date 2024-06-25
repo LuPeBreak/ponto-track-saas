@@ -1,0 +1,4 @@
+{
+  "extends":"@ponto-track-saas/tsconfig/node.json",
+  "include": ["src/**/*"]
+}
