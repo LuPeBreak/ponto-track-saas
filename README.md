@@ -33,7 +33,6 @@ This Project contains all the necessary boilerplate to setup a multi-tenant SaaS
 ### Vehicles
 
 - [ ] It should be able to get vehicles within a organization;
-- [ ] It should be able to get vehicle localization within a organization;
 - [ ] It should be able to create a new vehicle (name, type, localization, description);
 - [ ] It should be able to update a vehicle (name, type, localization, description);
 - [ ] It should be able to delete a vehicle;

@@ -110,8 +110,8 @@ model Organization {
   createdAt                 DateTime @default(now()) @map("created_at")
   updatedAt                 DateTime @updatedAt @map("updated_at")
 
-  owner  User   @relation(fields: [userId], references: [id])
-  userId String @map("user_id")
+  owner   User   @relation(fields: [ownerId], references: [id])
+  ownerId String @map("owner_id")
 
   invites  Invite[]
   members  Member[]
@@ -124,28 +124,16 @@ model Vehicle {
   id           String   @id @default(uuid())
   name         String
   licensePlate String?  @unique
+  latitude     Decimal
+  longitude    Decimal
   createdAt    DateTime @default(now()) @map("created_at")
   updatedAt    DateTime @updatedAt @map("updated_at")
 
   organization   Organization @relation(fields: [organizationId], references: [id])
   organizationId String       @map("organization_id")
 
-  owner  User   @relation(fields: [userId], references: [id])
-  userId String @map("user_id")
-
-  localizations Localization[]
+  owner   User   @relation(fields: [ownerId], references: [id])
+  ownerId String @map("owner_id")
 
   @@map("vehicles")
-}
-
-model Localization {
-  id        String   @id @default(uuid())
-  latitude  Decimal
-  longitude Decimal
-  createdAt DateTime @default(now()) @map("created_at")
-
-  vehicle   Vehicle @relation(fields: [vehicleId], references: [id])
-  vehicleId String
-
-  @@map("localizations")
 }
