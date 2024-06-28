@@ -1,0 +1,23 @@
+{
+  "name": "@ponto-track-saas/env",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.ts",
+  "types": "index.ts",
+  "devDependencies": {
+    "@ponto-track-saas/eslint-config": "workspace:*",
+    "@ponto-track-saas/prettier": "workspace:*",
+    "@ponto-track-saas/tsconfig": "workspace:*",
+    "@types/node": "^20.14.8"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@ponto-track-saas/eslint-config/library"
+    ]
+  },
+  "prettier": "@ponto-track-saas/prettier",
+  "dependencies": {
+    "@t3-oss/env-nextjs": "^0.10.1",
+    "zod": "^3.23.8"
+  }
+}
