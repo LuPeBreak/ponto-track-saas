@@ -17,6 +17,7 @@ import { vehicleSubject } from './subjects/vehicle'
 export * from './models/organization'
 export * from './models/user'
 export * from './models/vehicle'
+export * from './roles'
 
 const appAbilitiesSchema = z.union([
   vehicleSubject,
