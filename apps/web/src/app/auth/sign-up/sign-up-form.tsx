@@ -1,5 +1,4 @@
 'use client'
-
 import { AlertTriangle, Loader2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -14,20 +13,20 @@ import { Separator } from '@/components/ui/separator'
 import { useFormState } from '@/hooks/user-form-state'
 
 import { signInWithGithubAction } from '../actions'
-import { signInWithEmailAndPassword } from './actions'
+import { signUpAction } from './actions'
 
-export function SignInForm() {
+export function SignUpForm() {
   const router = useRouter()
   const [{ success, message, errors }, handleSubmit, isPending] = useFormState(
-    signInWithEmailAndPassword,
+    signUpAction,
     () => {
-      router.push('/')
+      router.push('/auth/sign-in')
     },
   )
 
   return (
     <div className="space-y-4">
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} action="" className="space-y-4">
         {success === false && message && (
           <Alert variant={'destructive'}>
             <AlertTriangle className="size-4" />
@@ -38,9 +37,18 @@ export function SignInForm() {
           </Alert>
         )}
         <div className="space-y-1">
+          <Label htmlFor="name">Name</Label>
+          <Input name="name" id="name" />
+          {errors?.name && (
+            <p className="text-xs font-medium text-red-500 dark:text-red-400">
+              {errors.name[0]}
+            </p>
+          )}
+        </div>
+
+        <div className="space-y-1">
           <Label htmlFor="email">E-mail</Label>
           <Input name="email" type="email" id="email" />
-
           {errors?.email && (
             <p className="text-xs font-medium text-red-500 dark:text-red-400">
               {errors.email[0]}
@@ -56,24 +64,32 @@ export function SignInForm() {
               {errors.password[0]}
             </p>
           )}
-          <Link
-            href={'/auth/forgot-password'}
-            className="text-xs font-medium text-foreground hover:underline"
-          >
-            Forgot your password?
-          </Link>
+        </div>
+
+        <div className="space-y-1">
+          <Label htmlFor="password_confirmation">Confirm your password</Label>
+          <Input
+            name="password_confirmation"
+            type="password"
+            id="password_confirmation"
+          />
+          {errors?.password_confirmation && (
+            <p className="text-xs font-medium text-red-500 dark:text-red-400">
+              {errors.password_confirmation[0]}
+            </p>
+          )}
         </div>
 
         <Button type="submit" className="w-full" disabled={isPending}>
           {isPending ? (
             <Loader2 className="size-4 animate-spin" />
           ) : (
-            'Sign in with e-mail'
+            'Create Account'
           )}
         </Button>
 
         <Button variant={'link'} className="w-full" size="sm" asChild>
-          <Link href="/auth/sign-up">Create new account</Link>
+          <Link href="/auth/sign-in">Already registered Sign in</Link>
         </Button>
       </form>
 
@@ -82,7 +98,7 @@ export function SignInForm() {
       <form action={signInWithGithubAction}>
         <Button type="submit" variant={'outline'} className="w-full">
           <Image src={githubIcon} className="mr-2 size-4 dark:invert" alt="" />
-          Sign in with GitHub
+          Sign up with GitHub
         </Button>
       </form>
     </div>
