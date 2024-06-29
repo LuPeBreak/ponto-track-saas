@@ -124,8 +124,8 @@ model Vehicle {
   id           String   @id @default(uuid())
   name         String
   licensePlate String?  @unique
-  latitude     Decimal
-  longitude    Decimal
+  latitude     Decimal?
+  longitude    Decimal?
   createdAt    DateTime @default(now()) @map("created_at")
   updatedAt    DateTime @updatedAt @map("updated_at")
 

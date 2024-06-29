@@ -26,6 +26,12 @@ import { getOrganizations } from './routes/orgs/get-organizations'
 import { shutdownOrganization } from './routes/orgs/shutdown-organization'
 import { transferOrganization } from './routes/orgs/transfer-organization'
 import { updateOrganization } from './routes/orgs/update-organization'
+import { createVehicle } from './routes/vehicles/create-vehicle'
+import { deleteVehicle } from './routes/vehicles/delete-vehicle'
+import { getVehicle } from './routes/vehicles/get-vehicle'
+import { getVehicles } from './routes/vehicles/get-vehicles'
+import { updateVehicle } from './routes/vehicles/update-vehicle'
+import { updateVehicleGeolocation } from './routes/vehicles/update-vehicle-geolocation'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -72,7 +78,7 @@ app.register(authenticateWithGithub)
 app.register(getProfile)
 app.register(requestPasswordRecover)
 app.register(resetPassword)
-// organization
+// organizations
 app.register(createOrganization)
 app.register(getMembership)
 app.register(getOrganization)
@@ -80,6 +86,13 @@ app.register(getOrganizations)
 app.register(updateOrganization)
 app.register(shutdownOrganization)
 app.register(transferOrganization)
+// vehicles
+app.register(createVehicle)
+app.register(deleteVehicle)
+app.register(getVehicle)
+app.register(getVehicles)
+app.register(updateVehicle)
+app.register(updateVehicleGeolocation)
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log('Server is Running!')
