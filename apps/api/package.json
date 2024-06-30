@@ -2,7 +2,7 @@
   "name": "@ponto-track-saas/api",
   "version": "1.0.0",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "prisma generate && tsc -p tsconfig.json",
     "start": "node build/http/server.js",
     "dev": "pnpm env:load tsx watch src/http/server.ts",
     "db:migrate": "pnpm env:load prisma migrate dev",
