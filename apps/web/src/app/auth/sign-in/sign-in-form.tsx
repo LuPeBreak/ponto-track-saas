@@ -1,6 +1,6 @@
 'use client'
 
-import { AlertTriangle, Loader2 } from 'lucide-react'
+import { AlertTriangle, Loader2, LocateFixed } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -27,6 +27,10 @@ export function SignInForm() {
 
   return (
     <div className="space-y-4">
+      <span className="flex items-center justify-center text-3xl font-bold text-foreground">
+        <LocateFixed className="size-14" />
+        PTS
+      </span>
       <form onSubmit={handleSubmit} className="space-y-4">
         {success === false && message && (
           <Alert variant={'destructive'}>

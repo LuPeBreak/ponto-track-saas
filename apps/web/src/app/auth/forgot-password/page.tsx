@@ -1,3 +1,4 @@
+import { LocateFixed } from 'lucide-react'
 import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
@@ -7,6 +8,10 @@ import { Label } from '@/components/ui/label'
 export default function ForgotPasswordPage() {
   return (
     <form action="" className="space-y-4">
+      <span className="flex items-center justify-center text-3xl font-bold text-foreground">
+        <LocateFixed className="size-14" />
+        PTS
+      </span>
       <div className="space-y-1">
         <Label htmlFor="email">E-mail</Label>
         <Input name="email" type="email" id="email" />

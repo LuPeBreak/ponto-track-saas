@@ -15,7 +15,7 @@ async function seed() {
   const user = await prisma.user.create({
     data: {
       name: 'luis felipe',
-      email: 'luisfelipe@pontotracksaas.com',
+      email: 'luisfelipe@pts.com',
       avatarUrl: 'https://github.com/lupebreak.png',
       passwordHash,
     },
@@ -40,8 +40,8 @@ async function seed() {
   // ADMIN
   await prisma.organization.create({
     data: {
-      name: 'Ponto Track Saas (Admin)',
-      domain: 'pontotracksaas.com',
+      name: 'PTS (Admin)',
+      domain: 'pts.com',
       slug: 'ponto-track-saas-admin',
       avatarUrl: faker.image.avatarGitHub(),
       shouldAttachUsersByDomain: true,
@@ -105,7 +105,7 @@ async function seed() {
   // MEMBER
   await prisma.organization.create({
     data: {
-      name: 'Ponto Track Saas (Member)',
+      name: 'PTS (Member)',
       slug: 'ponto-track-saas-member',
       avatarUrl: faker.image.avatarGitHub(),
       ownerId: user.id,
@@ -172,7 +172,7 @@ async function seed() {
   // BILLING
   await prisma.organization.create({
     data: {
-      name: 'Ponto Track Saas (Billing)',
+      name: 'PTS (Billing)',
       slug: 'ponto-track-saas-billing',
       avatarUrl: faker.image.avatarGitHub(),
       ownerId: user.id,
