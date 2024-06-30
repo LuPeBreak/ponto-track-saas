@@ -2,6 +2,7 @@
   "extends":"@ponto-track-saas/tsconfig/node.json",
   "include": ["src/**/*","@types/*.d.ts"],
   "compilerOptions": {
+    "outDir": "build",
     "baseUrl": ".",
     "paths": {
       "@/*":["./src/*"]
