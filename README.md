@@ -1,45 +1,54 @@
 # Ponto Track SAAS
 
-This Project contains all the necessary boilerplate to setup a multi-tenant SaaS with Next.js including authentication and RBAC authorization.
+A SaaS Tracking System monorepo
 
-## Features
+## Local Setup
+- On root run `pnpm i`
+- On root change .env.example file to .env and change github id and secret to your own (needs to create an application on github to get this)`
+- On ./apps/api run `pnpm run db:migrate`
+- On ./apps/api run `pnpm run db:seed`
+- On root run `pnpm run dev`
+- Open localhost:5173/sign-up - Web App login
+- Open localhost:3333/docs - Api Docs
+
+## Api Features
 
 ### Authentication
 
-- [ ] It should be able to authenticate using e-mail & password;
-- [ ] It should be able to authenticate using Github account;
+- [x] It should be able to authenticate using e-mail & password;
+- [x] It should be able to authenticate using Github account;
 - [ ] It should be able to recover password using e-mail;
 - [x] It should be able to create an account (e-mail, name and password);
 
 ### Organizations
 
-- [ ] It should be able to create a new organization;
-- [ ] It should be able to get organizations to which the user belongs;
-- [ ] It should be able to update an organization;
-- [ ] It should be able to shutdown an organization;
-- [ ] It should be able to transfer organization ownership;
+- [x] It should be able to create a new organization;
+- [x] It should be able to get organizations to which the user belongs;
+- [x] It should be able to update an organization;
+- [x] It should be able to shutdown an organization;
+- [x] It should be able to transfer organization ownership;
 
 ### Invites
 
-- [ ] It should be able to invite a new member (e-mail, role);
-- [ ] It should be able to accept an invite;
-- [ ] It should be able to revoke a pending invite;
+- [x] It should be able to invite a new member (e-mail, role);
+- [x] It should be able to accept an invite;
+- [x] It should be able to revoke a pending invite;
 
 ### Members
 
-- [ ] It should be able to get organization members;
-- [ ] It should be able to update a member role;
+- [x] It should be able to get organization members;
+- [x] It should be able to update a member role;
 
 ### Vehicles
 
-- [ ] It should be able to get vehicles within a organization;
-- [ ] It should be able to create a new vehicle (name, type, localization, description);
-- [ ] It should be able to update a vehicle (name, type, localization, description);
-- [ ] It should be able to delete a vehicle;
+- [x] It should be able to get vehicles within a organization;
+- [x] It should be able to create a new vehicle (name, type, localization, description);
+- [x] It should be able to update a vehicle (name, type, localization, description);
+- [x] It should be able to delete a vehicle;
 
 ### Billing
 
-- [ ] It should be able to get billing details for organization ($20 per vehicle / $10 per member excluding billing role);
+- [x] It should be able to get billing details for organization ($20 per vehicle / $10 per member excluding billing role);
 
 ## RBAC
 
