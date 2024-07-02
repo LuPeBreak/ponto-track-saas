@@ -4,6 +4,7 @@ A SaaS Tracking System monorepo
 
 ## Local Setup
 - On root run `pnpm i`
+- On root run `docker compose up -d`, for this you need to have docker installed. ( you can skip this if you are gonna use another database URL, just change in the .env file)
 - On root change .env.example file to .env and change github id and secret to your own (needs to create an application on github to get this)`
 - On ./apps/api run `pnpm run db:migrate`
 - On ./apps/api run `pnpm run db:seed`
